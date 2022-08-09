@@ -58,39 +58,28 @@ const createCards = () => {
 
   const image = document.querySelectorAll(".couple");
 
-  for (const element of Object.entries(cards)) {
-    console.log(
-      "elemento: ",
-      element,
-      "estado: ",
-      element[1].state,
-      "imagem: ",
-      element[1].url
-    );
+  const arrayOfCards = [...image];
 
-    console.log("verifyState >>>>", element[1].state);
-    console.log("verifyState >>>>", element[1].url);
+  arrayOfCards.forEach((item) => {
+    item.addEventListener("click", function () {
+      console.log("item", item);
+      console.log("clicou", item);
 
-    image.forEach((item) => {
-      item.addEventListener("click", function () {
-        console.log("clicou", element[1].id);
-
-        // if (element[1].state === false) {
-        //   return (
-        //     element[1].state === true, (element[1].url = "/assets/img/back.png")
-        //   );
-        // }
-        // return;
-        // for (const element of Object.entries(cards)) {
-        //   console.log("creatcard ", element[1].state);
-        // if (element[1].state === true) {
-        //   element[1].state = false;
-        //   //   console.log("entra aqui?");
-        //   }
-        // }
-      });
+      // if (element[1].state === false) {
+      //   return (
+      //     element[1].state === true, (element[1].url = "/assets/img/back.png")
+      //   );
+      // }
+      // return;
+      // for (const element of Object.entries(cards)) {
+      //   console.log("creatcard ", element[1].state);
+      // if (element[1].state === true) {
+      //   element[1].state = false;
+      //   //   console.log("entra aqui?");
+      //   }
+      // }
     });
-  }
+  });
 };
 
 createCards();
