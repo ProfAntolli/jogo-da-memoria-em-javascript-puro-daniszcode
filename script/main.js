@@ -28,6 +28,7 @@ const cards = {
 
 const cardSection = document.querySelector(".card-section");
 let quantifierClicks = 0;
+let arrayOfItens = [];
 
 const createCards = () => {
   const cardOfThreeOne = document.createElement("img");
@@ -64,21 +65,25 @@ const createCards = () => {
   const image = document.querySelectorAll(".couple");
   console.log("image: ", NodeList.image);
   const arrayOfCards = [...image];
+  console.log("arrayOfCards", arrayOfCards);
   arrayOfCards.forEach((item) => {
     item.addEventListener("click", function () {
       quantifierClicks = quantifierClicks + 1;
-      let comparative = [...item, item];
-      console.log("item", item);
+      arrayOfItens.push(item);
+      console.log("arrayOfItens", arrayOfItens);
+      if (arrayOfItens.length === 3) {
+        return (arrayOfItens = [""]);
+      }
+      return;
+
       const indice = arrayOfCards.indexOf(item);
       console.log("clicou", item, "no indice: ", indice);
 
-      console.log("quantifier", quantifierClicks);
-      if (quantifierClicks > 0 && quantifierClicks < 3) {
-        if (indice === 0 && indice === 1) {
-          console.log("par");
-        }
-      }
-      console.log(comparative);
+      // console.log("quantifier", quantifierClicks);
+      // if (quantifierClicks > 0 && quantifierClicks < 3) {
+      //   if (indice === 0 && indice === 1) {
+      //     console.log("par");
+      //   }
     });
   });
 };
