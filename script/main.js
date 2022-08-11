@@ -27,6 +27,7 @@ const cards = {
 };
 
 const cardSection = document.querySelector(".card-section");
+let quantifierClicks = 0;
 
 const createCards = () => {
   const cardOfThreeOne = document.createElement("img");
@@ -40,44 +41,44 @@ const createCards = () => {
   cardOfThreeOne.classList.add("couple");
   cardSection.appendChild(cardOfThreeOne);
 
+  cardOfThreeTwo.setAttribute("id", `${cards.cardOfThree.id}`);
   cardOfThreeTwo.setAttribute("src", `${cards.cardOfThree.url}`);
   cardOfThreeTwo.classList.add("couple");
   cardSection.appendChild(cardOfThreeTwo);
 
+  cardOfMiOne.setAttribute("id", `${cards.cardOfMione.id}`);
   cardOfMiOne.setAttribute("src", `${cards.cardOfMione.url}`);
   cardOfMiOne.classList.add("couple");
   cardSection.appendChild(cardOfMiOne);
 
+  cardOfMioneTwo.setAttribute("id", `${cards.cardOfMione.id}`);
   cardOfMioneTwo.setAttribute("src", `${cards.cardOfMione.url}`);
   cardOfMioneTwo.classList.add("couple");
   cardSection.appendChild(cardOfMioneTwo);
 
+  backCard.setAttribute("id", `${cards.backCard.id}`);
   backCard.setAttribute("src", `${cards.backCard.url}`);
   backCard.classList.add("single");
   // cardSection.appendChild(backCard);
 
   const image = document.querySelectorAll(".couple");
-
+  console.log("image: ", NodeList.image);
   const arrayOfCards = [...image];
-
   arrayOfCards.forEach((item) => {
     item.addEventListener("click", function () {
+      quantifierClicks = quantifierClicks + 1;
+      let comparative = [...item, item];
       console.log("item", item);
-      console.log("clicou", item);
+      const indice = arrayOfCards.indexOf(item);
+      console.log("clicou", item, "no indice: ", indice);
 
-      // if (element[1].state === false) {
-      //   return (
-      //     element[1].state === true, (element[1].url = "/assets/img/back.png")
-      //   );
-      // }
-      // return;
-      // for (const element of Object.entries(cards)) {
-      //   console.log("creatcard ", element[1].state);
-      // if (element[1].state === true) {
-      //   element[1].state = false;
-      //   //   console.log("entra aqui?");
-      //   }
-      // }
+      console.log("quantifier", quantifierClicks);
+      if (quantifierClicks > 0 && quantifierClicks < 3) {
+        if (indice === 0 && indice === 1) {
+          console.log("par");
+        }
+      }
+      console.log(comparative);
     });
   });
 };
